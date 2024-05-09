@@ -28,7 +28,7 @@ void main() {
 	float depth = clamp(ftrans.w, 0.001, 1000);
 	float sqrtDepth = sqrt(depth);
 	
-	vec4 position4 = mat4(gl_ModelViewMatrix) * vec4(gl_Vertex) + gl_ModelViewMatrix[3].xyzw;
+	vec4 position4 = mat4(gl_ModelViewMatrix) * vec4(gl_Vertex);
 	vec3 position = PixelSnap(position4, vertex_inaccuracy_entities / sqrtDepth).xyz;
 	
 	float wVal = (mat3(gl_ProjectionMatrix) * position).z;

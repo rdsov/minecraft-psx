@@ -25,7 +25,7 @@ void main() {
 	texcoord = gl_MultiTexCoord0;
 	lmcoord = gl_TextureMatrix[1] * gl_MultiTexCoord1;
 	
-	vec4 position4 = mat4(gl_ModelViewMatrix) * vec4(gl_Vertex) + gl_ModelViewMatrix[3].xyzw;
+	vec4 position4 = mat4(gl_ModelViewMatrix) * vec4(gl_Vertex);
 	vec3 position = PixelSnap(position4, vertex_inaccuracy_terrain).xyz;
 	
 	float wVal = (mat3(gl_ProjectionMatrix) * position).z;
